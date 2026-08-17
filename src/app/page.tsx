@@ -40,16 +40,16 @@ interface ProjectBook {
 const PROJECTS: ProjectBook[] = [
   {
     id: '01',
-    title: 'FinancialWallet API',
-    tagline: 'Kişisel Finans & Cüzdan API',
+    title: 'FinancialWallet API & Web UI',
+    tagline: 'Kişisel Finans & Cüzdan Uygulaması',
     spineColor: 'bg-[#e8d5cb]',
     spineTextColor: 'text-stone-800',
     pageBorder: 'border-[#e8d5cb]',
-    overview: 'Katmanlı mimari, EF Core, PostgreSQL ve JWT kimlik doğrulama ile tasarlanmış çoklu cüzdan altyapısı. Canlı Swagger üzerinden test edilebilir.',
+    overview: 'Katmanlı mimari, EF Core, PostgreSQL ve JWT kimlik doğrulama ile tasarlanmış çoklu cüzdan altyapısı. Canlı web arayüzü üzerinden anlık transfer ve bakiye hareketleri test edilebilir.',
     highlights: ['Katmanlı Mimari (N-Tier)', 'JWT & Refresh Token Doğrulama', 'Repository & Unit of Work'],
-    techStack: ['C#', '.NET 8', 'PostgreSQL', 'EF Core', 'JWT', 'Docker'],
+    techStack: ['React', 'Vite', 'C#', '.NET 8', 'PostgreSQL', 'Docker'],
     githubUrl: 'https://github.com/GokceSoylu/FinancialWallet',
-    liveUrl: 'https://financialwallet.onrender.com',
+    liveUrl: 'https://financial-wallet-nine.vercel.app',
   },
   {
     id: '02',
@@ -124,7 +124,7 @@ export default function Home() {
           </h1>
 
           <p className="text-base sm:text-lg text-stone-600 max-w-2xl leading-relaxed">
-            C#, ASP.NET Core, Clean Architecture ve mikroservis standartlarıyla ölçeklenebilir backend sistemleri geliştiriyorum. Projelerim, canlı API servislerim ve teknik yazılarım aşağıda yer alıyor.
+            C#, ASP.NET Core, Clean Architecture ve mikroservis standartlarıyla ölçeklenebilir backend sistemleri geliştiriyorum. Projelerim, canlı uygulamalarım ve teknik yazılarım aşağıda yer alıyor.
           </p>
 
           {/* Butonlar */}
@@ -176,7 +176,7 @@ export default function Home() {
               <BookMarked className="w-5 h-5 text-stone-600" />
               <div>
                 <h2 className="text-xl font-bold tracking-tight text-stone-900">Proje Kitaplığı</h2>
-                <p className="text-xs text-stone-500">Kitabın üzerine gelerek detayları görebilir ve canlı API&apos;yi test edebilirsiniz.</p>
+                <p className="text-xs text-stone-500">Kitabın üzerine gelerek detayları görebilir ve canlı uygulamayı deneyimleyebilirsiniz.</p>
               </div>
             </div>
           </div>
@@ -224,7 +224,7 @@ export default function Home() {
                               onClick={(e) => e.stopPropagation()}
                             >
                               <Play className="w-3 h-3 text-rose-300 fill-current" />
-                              Canlı Swagger Test Et
+                              Canlı Uygulamayı Aç
                             </a>
                           )}
                           <a
