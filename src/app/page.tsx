@@ -45,47 +45,47 @@ const PROJECTS: ProjectBook[] = [
     spineColor: 'bg-[#e8d5cb]',
     spineTextColor: 'text-stone-800',
     pageBorder: 'border-[#e8d5cb]',
-    overview: 'Katmanlı mimari, EF Core, PostgreSQL ve JWT kimlik doğrulama ile tasarlanmış çoklu cüzdan altyapısı[cite: 1, 2]. Canlı Swagger üzerinden test edilebilir.',
-    highlights: ['Katmanlı Mimari (N-Tier)[cite: 1, 2]', 'JWT & Refresh Token Doğrulama[cite: 1, 2]', 'Repository & Unit of Work[cite: 1, 2]'],
-    techStack: ['C#', '.NET 8', 'PostgreSQL', 'EF Core', 'JWT', 'Docker'][cite: 1, 2],
-  githubUrl: 'https://github.com/GokceSoylu/FinancialWallet',
-  liveUrl: 'https://financialwallet.onrender.com', // Canlı Render API linkiniz
+    overview: 'Katmanlı mimari, EF Core, PostgreSQL ve JWT kimlik doğrulama ile tasarlanmış çoklu cüzdan altyapısı. Canlı Swagger üzerinden test edilebilir.',
+    highlights: ['Katmanlı Mimari (N-Tier)', 'JWT & Refresh Token Doğrulama', 'Repository & Unit of Work'],
+    techStack: ['C#', '.NET 8', 'PostgreSQL', 'EF Core', 'JWT', 'Docker'],
+    githubUrl: 'https://github.com/GokceSoylu/FinancialWallet',
+    liveUrl: 'https://financialwallet.onrender.com',
   },
-{
-  id: '02',
+  {
+    id: '02',
     title: 'AI-Powered E-Commerce BI',
-      tagline: 'Doğal Dil ile NL2SQL Hattı',
-        spineColor: 'bg-[#d8e2dc]',
-          spineTextColor: 'text-stone-800',
-            pageBorder: 'border-[#d8e2dc]',
-              overview: 'Doğal dil sorgularını SQL’e çeviren LangChain ve GPT tabanlı e-ticaret analitik platformu[cite: 1, 2].',
-                highlights: ['LangChain & LLM Pipeline[cite: 1, 2]', 'Spring Boot & FastAPI Servisleri[cite: 1, 2]', 'Dinamik Grafik & Raporlama[cite: 1, 2]'],
-                  techStack: ['Python', 'FastAPI', 'Spring Boot', 'LangChain', 'PostgreSQL'][cite: 1, 2],
-  githubUrl: 'https://github.com/GokceSoylu/nl2sql_tez',
+    tagline: 'Doğal Dil ile NL2SQL Hattı',
+    spineColor: 'bg-[#d8e2dc]',
+    spineTextColor: 'text-stone-800',
+    pageBorder: 'border-[#d8e2dc]',
+    overview: 'Doğal dil sorgularını SQL’e çeviren LangChain ve GPT tabanlı e-ticaret analitik platformu.',
+    highlights: ['LangChain & LLM Pipeline', 'Spring Boot & FastAPI Servisleri', 'Dinamik Grafik & Raporlama'],
+    techStack: ['Python', 'FastAPI', 'Spring Boot', 'LangChain', 'PostgreSQL'],
+    githubUrl: 'https://github.com/GokceSoylu/nl2sql_tez',
   },
-{
-  id: '03',
+  {
+    id: '03',
     title: 'SmartBook Appointment API',
-      tagline: 'Akıllı Randevu & Rezervasyon',
-        spineColor: 'bg-[#f0efeb]',
-          spineTextColor: 'text-stone-800',
-            pageBorder: 'border-[#e2dfd2]',
-              overview: 'Zaman çakışmalarını engelleyen akıllı doğrulama algoritmalarına sahip ölçeklenebilir randevu motoru[cite: 1, 2].',
-                highlights: ['Rol Tabanlı Erişim (RBAC)[cite: 1, 2]', 'Zaman Çakışma Önleyici Doğrulama[cite: 1, 2]', 'RESTful API Tasarımı[cite: 1, 2]'],
-                  techStack: ['Java', 'Spring Boot', 'RESTful API', 'PostgreSQL'][cite: 1, 2],
-  githubUrl: 'https://github.com/GokceSoylu',
+    tagline: 'Akıllı Randevu & Rezervasyon',
+    spineColor: 'bg-[#f0efeb]',
+    spineTextColor: 'text-stone-800',
+    pageBorder: 'border-[#e2dfd2]',
+    overview: 'Zaman çakışmalarını engelleyen akıllı doğrulama algoritmalarına sahip ölçeklenebilir randevu motoru.',
+    highlights: ['Rol Tabanlı Erişim (RBAC)', 'Zaman Çakışma Önleyici Doğrulama', 'RESTful API Tasarımı'],
+    techStack: ['Java', 'Spring Boot', 'RESTful API', 'PostgreSQL'],
+    githubUrl: 'https://github.com/GokceSoylu',
   },
-{
-  id: '04',
+  {
+    id: '04',
     title: 'Cloud Earthquake Analytics',
-      tagline: 'Gerçek Zamanlı Sismik Akış',
-        spineColor: 'bg-[#fae1dd]',
-          spineTextColor: 'text-stone-800',
-            pageBorder: 'border-[#fae1dd]',
-              overview: 'AWS Lambda ve S3 servisleriyle deprem verilerini işleyip anlık görselleştiren bulut mimarisi[cite: 1, 2].',
-                highlights: ['Serverless Lambda Mimarisi[cite: 1, 2]', 'AWS S3 Veri Havuzu[cite: 1, 2]', 'QuickSight Analitik Paneller[cite: 1, 2]'],
-                  techStack: ['AWS Lambda', 'AWS S3', 'QuickSight', 'Python'][cite: 1, 2],
-  githubUrl: 'https://github.com/GokceSoylu',
+    tagline: 'Gerçek Zamanlı Sismik Akış',
+    spineColor: 'bg-[#fae1dd]',
+    spineTextColor: 'text-stone-800',
+    pageBorder: 'border-[#fae1dd]',
+    overview: 'AWS Lambda ve S3 servisleriyle deprem verilerini işleyip anlık görselleştiren bulut mimarisi.',
+    highlights: ['Serverless Lambda Mimarisi', 'AWS S3 Veri Havuzu', 'QuickSight Analitik Paneller'],
+    techStack: ['AWS Lambda', 'AWS S3', 'QuickSight', 'Python'],
+    githubUrl: 'https://github.com/GokceSoylu',
   }
 ];
 
@@ -124,7 +124,7 @@ export default function Home() {
           </h1>
 
           <p className="text-base sm:text-lg text-stone-600 max-w-2xl leading-relaxed">
-            C#, ASP.NET Core, Clean Architecture ve mikroservis standartlarıyla ölçeklenebilir backend sistemleri geliştiriyorum[cite: 1, 2]. Projelerim, canlı API servislerim ve teknik yazılarım aşağıda yer alıyor[cite: 1, 2].
+            C#, ASP.NET Core, Clean Architecture ve mikroservis standartlarıyla ölçeklenebilir backend sistemleri geliştiriyorum. Projelerim, canlı API servislerim ve teknik yazılarım aşağıda yer alıyor.
           </p>
 
           {/* Butonlar */}
@@ -283,7 +283,7 @@ export default function Home() {
               <Server className="w-5 h-5 text-stone-700 mb-3" />
               <h3 className="font-semibold text-sm text-stone-900 mb-1">Backend & .NET</h3>
               <p className="text-xs text-stone-500 leading-relaxed">
-                C#, ASP.NET Core Web API, Entity Framework Core, LINQ, RESTful Mimariler, JWT Auth[cite: 1, 2].
+                C#, ASP.NET Core Web API, Entity Framework Core, LINQ, RESTful Mimariler, JWT Auth.
               </p>
             </div>
 
@@ -291,7 +291,7 @@ export default function Home() {
               <Layers className="w-5 h-5 text-stone-700 mb-3" />
               <h3 className="font-semibold text-sm text-stone-900 mb-1">Mimari & Desenler</h3>
               <p className="text-xs text-stone-500 leading-relaxed">
-                Clean Architecture, N-Tier, Repository & Unit of Work, SOLID, OOP İlkeleri[cite: 1, 2].
+                Clean Architecture, N-Tier, Repository & Unit of Work, SOLID, OOP İlkeleri.
               </p>
             </div>
 
@@ -299,7 +299,7 @@ export default function Home() {
               <Database className="w-5 h-5 text-stone-700 mb-3" />
               <h3 className="font-semibold text-sm text-stone-900 mb-1">Veri & Araçlar</h3>
               <p className="text-xs text-stone-500 leading-relaxed">
-                PostgreSQL, MS SQL Server, Docker, Git/GitHub, Postman, AWS Servisleri[cite: 1, 2].
+                PostgreSQL, MS SQL Server, Docker, Git/GitHub, Postman, AWS Servisleri.
               </p>
             </div>
           </div>
@@ -364,19 +364,19 @@ export default function Home() {
             <div>
               <span className="text-stone-400 font-medium">Tem 2025 – Ağu 2025</span>
               <h3 className="text-sm font-semibold text-stone-900 mt-0.5">M8D6 – Backend Development Stajı</h3>
-              <p className="text-stone-600 mt-0.5">ADF Engineering • C#, ASP.NET Core ve veritabanı mimarileri[cite: 1, 2].</p>
+              <p className="text-stone-600 mt-0.5">ADF Engineering • C#, ASP.NET Core ve veritabanı mimarileri.</p>
             </div>
 
             <div>
               <span className="text-stone-400 font-medium">Ağu 2022 – Ağu 2024</span>
               <h3 className="text-sm font-semibold text-stone-900 mt-0.5">TÜBİTAK STAR Araştırmacı Bursiyeri</h3>
-              <p className="text-stone-600 mt-0.5">SimurgAI Lab • Derin öğrenme ve medikal görüntü işleme araştırmaları[cite: 1, 2].</p>
+              <p className="text-stone-600 mt-0.5">SimurgAI Lab • Derin öğrenme ve medikal görüntü işleme araştırmaları.</p>
             </div>
 
             <div>
               <span className="text-stone-400 font-medium">Nis 2022 – Tem 2023</span>
               <h3 className="text-sm font-semibold text-stone-900 mt-0.5">Öğrenci Asistanı (C Programlama)</h3>
-              <p className="text-stone-600 mt-0.5">Yapısal programlama, pointerlar ve veri yapıları laboratuvar desteği[cite: 1, 2].</p>
+              <p className="text-stone-600 mt-0.5">Yapısal programlama, pointerlar ve veri yapıları laboratuvar desteği.</p>
             </div>
           </div>
         </section>
