@@ -7,23 +7,92 @@ import {
   Server,
   Database,
   Code2,
-  ExternalLink,
   Layers,
-  Award
+  Award,
+  ArrowUpRight,
+  ExternalLink,
+  BookMarked,
+  Sparkles,
+  FileText,
+  Play
 } from 'lucide-react';
 
 interface MediumPost {
   title: string;
   link: string;
   pubDate: string;
-  thumbnail: string;
 }
+
+interface ProjectBook {
+  id: string;
+  title: string;
+  tagline: string;
+  spineColor: string;
+  spineTextColor: string;
+  pageBorder: string;
+  overview: string;
+  highlights: string[];
+  techStack: string[];
+  githubUrl: string;
+  liveUrl?: string;
+}
+
+const PROJECTS: ProjectBook[] = [
+  {
+    id: '01',
+    title: 'FinancialWallet API',
+    tagline: 'Kişisel Finans & Cüzdan API',
+    spineColor: 'bg-[#e8d5cb]',
+    spineTextColor: 'text-stone-800',
+    pageBorder: 'border-[#e8d5cb]',
+    overview: 'Katmanlı mimari, EF Core, PostgreSQL ve JWT kimlik doğrulama ile tasarlanmış çoklu cüzdan altyapısı[cite: 1, 2]. Canlı Swagger üzerinden test edilebilir.',
+    highlights: ['Katmanlı Mimari (N-Tier)[cite: 1, 2]', 'JWT & Refresh Token Doğrulama[cite: 1, 2]', 'Repository & Unit of Work[cite: 1, 2]'],
+    techStack: ['C#', '.NET 8', 'PostgreSQL', 'EF Core', 'JWT', 'Docker'][cite: 1, 2],
+  githubUrl: 'https://github.com/GokceSoylu/FinancialWallet',
+  liveUrl: 'https://financialwallet.onrender.com', // Canlı Render API linkiniz
+  },
+{
+  id: '02',
+    title: 'AI-Powered E-Commerce BI',
+      tagline: 'Doğal Dil ile NL2SQL Hattı',
+        spineColor: 'bg-[#d8e2dc]',
+          spineTextColor: 'text-stone-800',
+            pageBorder: 'border-[#d8e2dc]',
+              overview: 'Doğal dil sorgularını SQL’e çeviren LangChain ve GPT tabanlı e-ticaret analitik platformu[cite: 1, 2].',
+                highlights: ['LangChain & LLM Pipeline[cite: 1, 2]', 'Spring Boot & FastAPI Servisleri[cite: 1, 2]', 'Dinamik Grafik & Raporlama[cite: 1, 2]'],
+                  techStack: ['Python', 'FastAPI', 'Spring Boot', 'LangChain', 'PostgreSQL'][cite: 1, 2],
+  githubUrl: 'https://github.com/GokceSoylu/nl2sql_tez',
+  },
+{
+  id: '03',
+    title: 'SmartBook Appointment API',
+      tagline: 'Akıllı Randevu & Rezervasyon',
+        spineColor: 'bg-[#f0efeb]',
+          spineTextColor: 'text-stone-800',
+            pageBorder: 'border-[#e2dfd2]',
+              overview: 'Zaman çakışmalarını engelleyen akıllı doğrulama algoritmalarına sahip ölçeklenebilir randevu motoru[cite: 1, 2].',
+                highlights: ['Rol Tabanlı Erişim (RBAC)[cite: 1, 2]', 'Zaman Çakışma Önleyici Doğrulama[cite: 1, 2]', 'RESTful API Tasarımı[cite: 1, 2]'],
+                  techStack: ['Java', 'Spring Boot', 'RESTful API', 'PostgreSQL'][cite: 1, 2],
+  githubUrl: 'https://github.com/GokceSoylu',
+  },
+{
+  id: '04',
+    title: 'Cloud Earthquake Analytics',
+      tagline: 'Gerçek Zamanlı Sismik Akış',
+        spineColor: 'bg-[#fae1dd]',
+          spineTextColor: 'text-stone-800',
+            pageBorder: 'border-[#fae1dd]',
+              overview: 'AWS Lambda ve S3 servisleriyle deprem verilerini işleyip anlık görselleştiren bulut mimarisi[cite: 1, 2].',
+                highlights: ['Serverless Lambda Mimarisi[cite: 1, 2]', 'AWS S3 Veri Havuzu[cite: 1, 2]', 'QuickSight Analitik Paneller[cite: 1, 2]'],
+                  techStack: ['AWS Lambda', 'AWS S3', 'QuickSight', 'Python'][cite: 1, 2],
+  githubUrl: 'https://github.com/GokceSoylu',
+  }
+];
 
 export default function Home() {
   const [posts, setPosts] = useState<MediumPost[]>([]);
   const [loadingPosts, setLoadingPosts] = useState(true);
 
-  // Kendi Medium kullanıcı adınızı buraya yazın (Örn: "gokcesoylu")
   const MEDIUM_USERNAME = "gokcesoylu";
 
   useEffect(() => {
@@ -39,157 +108,199 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white">
-      <div className="fixed inset-0 z-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))]" />
+    <div className="min-h-screen bg-[#faf8f5] text-stone-800 font-sans antialiased selection:bg-[#fae1dd] selection:text-stone-900">
 
-      <main className="relative z-10 max-w-5xl mx-auto px-6 py-16 space-y-24">
+      <main className="max-w-4xl mx-auto px-6 py-16 space-y-20">
 
         {/* HERO */}
-        <section className="flex flex-col items-start gap-6 pt-12 border-b border-slate-800/80 pb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-            <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
-            Backend Geliştirici
+        <section className="flex flex-col items-start gap-5 pt-8 border-b border-stone-200/80 pb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#f0efeb] text-stone-700 border border-stone-300/60 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-stone-500" />
+            .NET & Backend Developer
           </div>
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white">
+
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-stone-900">
             Gökçe Soylu
           </h1>
-          <p className="text-xl text-slate-400 max-w-2xl leading-relaxed">
-            <strong className="text-slate-200">.NET & Backend Developer</strong>. C#, ASP.NET Core,
-            Clean Architecture ve modern RESTful API mimarileriyle ölçeklenebilir
-            sistemler tasarlıyorum.
+
+          <p className="text-base sm:text-lg text-stone-600 max-w-2xl leading-relaxed">
+            C#, ASP.NET Core, Clean Architecture ve mikroservis standartlarıyla ölçeklenebilir backend sistemleri geliştiriyorum[cite: 1, 2]. Projelerim, canlı API servislerim ve teknik yazılarım aşağıda yer alıyor[cite: 1, 2].
           </p>
 
-          <div className="flex flex-wrap items-center gap-4 pt-2">
-            <a href="https://github.com/kullaniciadiniz" target="_blank" rel="noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition">
-              <svg className="w-4 h-4 fill-current text-indigo-400" viewBox="0 0 24 24">
+          {/* Butonlar */}
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <a
+              href="/GokceCV.pdf.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-stone-900 text-white font-semibold text-xs hover:bg-stone-800 transition shadow-xs"
+            >
+              <FileText className="w-3.5 h-3.5 text-rose-300" />
+              Özgeçmiş / CV
+            </a>
+
+            <a href="https://github.com/GokceSoylu" target="_blank" rel="noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-stone-200 text-stone-700 hover:border-stone-400 hover:text-stone-900 transition text-xs font-semibold shadow-xs">
+              <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
               </svg>
-              <span className="text-sm font-medium">GitHub</span>
+              GitHub
             </a>
-            <a href="https://linkedin.com/in/kullaniciadiniz" target="_blank" rel="noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition">
-              <svg className="w-4 h-4 fill-current text-indigo-400" viewBox="0 0 24 24">
+
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-stone-200 text-stone-700 hover:border-stone-400 hover:text-stone-900 transition text-xs font-semibold shadow-xs">
+              <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
               </svg>
-              <span className="text-sm font-medium">LinkedIn</span>
+              LinkedIn
             </a>
+
             <a href={`https://medium.com/@${MEDIUM_USERNAME}`} target="_blank" rel="noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition">
-              <BookOpen className="w-4 h-4 text-indigo-400" />
-              <span className="text-sm font-medium">Medium</span>
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-stone-200 text-stone-700 hover:border-stone-400 hover:text-stone-900 transition text-xs font-semibold shadow-xs">
+              <BookOpen className="w-3.5 h-3.5 text-stone-600" />
+              Medium
             </a>
+
             <a href="mailto:gokcesoylu24@gmail.com"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500 transition font-medium text-sm">
-              <Mail className="w-4 h-4" />
-              İletişime Geç
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#f0efeb] text-stone-800 border border-stone-300 font-semibold text-xs hover:bg-[#e8e6e1] transition shadow-xs">
+              <Mail className="w-3.5 h-3.5" />
+              İletişim
             </a>
+          </div>
+        </section>
+
+        {/* BEYAZ İSKANDİNAV KİTAPLIK RAFI */}
+        <section className="space-y-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2.5">
+              <BookMarked className="w-5 h-5 text-stone-600" />
+              <div>
+                <h2 className="text-xl font-bold tracking-tight text-stone-900">Proje Kitaplığı</h2>
+                <p className="text-xs text-stone-500">Kitabın üzerine gelerek detayları görebilir ve canlı API&apos;yi test edebilirsiniz.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-[#ffffff] rounded-2xl p-6 sm:p-8 border-4 border-stone-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {PROJECTS.map((book) => (
+                <div
+                  key={book.id}
+                  className="group relative h-[230px] perspective-1000 cursor-pointer"
+                >
+                  <div className="relative w-full h-full duration-500 transition-all transform-gpu group-hover:-translate-y-2">
+
+                    {/* İç Sayfa (Detay) */}
+                    <div className="absolute inset-0 bg-[#fdfbf9] border border-stone-200 rounded-xl p-5 shadow-xs flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-start justify-between gap-2 mb-1">
+                          <h3 className="font-bold text-sm text-stone-900 leading-tight">
+                            {book.title}
+                          </h3>
+                        </div>
+                        <p className="text-[11px] text-stone-500 font-medium mb-1.5">{book.tagline}</p>
+                        <p className="text-xs text-stone-600 leading-relaxed line-clamp-2">
+                          {book.overview}
+                        </p>
+                      </div>
+
+                      <div className="space-y-2.5">
+                        <div className="flex flex-wrap gap-1">
+                          {book.techStack.map((tech, idx) => (
+                            <span key={idx} className="text-[10px] font-medium px-2 py-0.5 rounded bg-stone-100 text-stone-600 border border-stone-200">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* Canlı Demo & GitHub Butonları */}
+                        <div className="flex items-center gap-2 pt-2 border-t border-stone-200/80">
+                          {book.liveUrl && (
+                            <a
+                              href={book.liveUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-stone-900 text-white text-[11px] font-semibold hover:bg-stone-800 transition"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <Play className="w-3 h-3 text-rose-300 fill-current" />
+                              Canlı Swagger Test Et
+                            </a>
+                          )}
+                          <a
+                            href={book.githubUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] text-stone-600 hover:text-stone-900 font-medium transition ml-auto"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            GitHub Repo <ArrowUpRight className="w-3.5 h-3.5" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Ön Kapak */}
+                    <div className={`absolute inset-0 ${book.spineColor} rounded-xl border border-stone-300/40 p-5 flex flex-col justify-between transition-opacity duration-300 group-hover:opacity-0 pointer-events-none shadow-xs`}>
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-bold tracking-widest uppercase text-stone-600">VOL // {book.id}</span>
+                        <div className="w-2 h-2 rounded-full bg-stone-400/40" />
+                      </div>
+
+                      <div>
+                        <h3 className={`text-base font-bold tracking-tight ${book.spineTextColor}`}>
+                          {book.title}
+                        </h3>
+                        <p className="text-xs text-stone-600/80 mt-0.5">
+                          {book.tagline}
+                        </p>
+                      </div>
+
+                      <div className="flex items-center justify-between text-[11px] font-medium text-stone-600/70 border-t border-stone-400/20 pt-2">
+                        <span>İncelemek için gelin</span>
+                        <span>→</span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 h-3 rounded bg-stone-200/80 border-t border-stone-300/60 shadow-inner" />
           </div>
         </section>
 
         {/* TEKNİK YETKİNLİKLER */}
         <section className="space-y-6">
-          <div className="flex items-center gap-3">
-            <Code2 className="w-6 h-6 text-indigo-400" />
-            <h2 className="text-2xl font-bold tracking-tight">Teknik Uzmanlık</h2>
+          <div className="flex items-center gap-2.5">
+            <Code2 className="w-5 h-5 text-stone-600" />
+            <h2 className="text-xl font-bold tracking-tight text-stone-900">Teknik Yetkinlikler</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-xl bg-slate-900/60 border border-slate-800">
-              <Server className="w-6 h-6 text-indigo-400 mb-4" />
-              <h3 className="font-semibold text-lg text-white mb-2">Backend & .NET</h3>
-              <p className="text-sm text-slate-400">
-                C#, ASP.NET Core Web API, Entity Framework Core, LINQ, RESTful API Tasarımı, JWT Authentication.
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="p-6 rounded-2xl bg-white border border-stone-200 shadow-xs">
+              <Server className="w-5 h-5 text-stone-700 mb-3" />
+              <h3 className="font-semibold text-sm text-stone-900 mb-1">Backend & .NET</h3>
+              <p className="text-xs text-stone-500 leading-relaxed">
+                C#, ASP.NET Core Web API, Entity Framework Core, LINQ, RESTful Mimariler, JWT Auth[cite: 1, 2].
               </p>
             </div>
-            <div className="p-6 rounded-xl bg-slate-900/60 border border-slate-800">
-              <Layers className="w-6 h-6 text-indigo-400 mb-4" />
-              <h3 className="font-semibold text-lg text-white mb-2">Mimari & Desenler</h3>
-              <p className="text-sm text-slate-400">
-                Clean Architecture, N-Tier Architecture, Repository & Unit of Work, SOLID Prensipleri, OOP.
+
+            <div className="p-6 rounded-2xl bg-white border border-stone-200 shadow-xs">
+              <Layers className="w-5 h-5 text-stone-700 mb-3" />
+              <h3 className="font-semibold text-sm text-stone-900 mb-1">Mimari & Desenler</h3>
+              <p className="text-xs text-stone-500 leading-relaxed">
+                Clean Architecture, N-Tier, Repository & Unit of Work, SOLID, OOP İlkeleri[cite: 1, 2].
               </p>
             </div>
-            <div className="p-6 rounded-xl bg-slate-900/60 border border-slate-800">
-              <Database className="w-6 h-6 text-indigo-400 mb-4" />
-              <h3 className="font-semibold text-lg text-white mb-2">Veri & Araçlar</h3>
-              <p className="text-sm text-slate-400">
-                PostgreSQL, MS SQL Server, Docker, Git / GitHub, Postman, AWS Servisleri.
+
+            <div className="p-6 rounded-2xl bg-white border border-stone-200 shadow-xs">
+              <Database className="w-5 h-5 text-stone-700 mb-3" />
+              <h3 className="font-semibold text-sm text-stone-900 mb-1">Veri & Araçlar</h3>
+              <p className="text-xs text-stone-500 leading-relaxed">
+                PostgreSQL, MS SQL Server, Docker, Git/GitHub, Postman, AWS Servisleri[cite: 1, 2].
               </p>
-            </div>
-          </div>
-        </section>
-
-        {/* PROJE VİTRİNİ */}
-        <section className="space-y-6">
-          <div className="flex items-center gap-3">
-            <Server className="w-6 h-6 text-indigo-400" />
-            <h2 className="text-2xl font-bold tracking-tight">Öne Çıkan Projeler</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-bold text-lg text-white">FinancialWallet API</h3>
-                  <ExternalLink className="w-4 h-4 text-slate-500" />
-                </div>
-                <p className="text-sm text-slate-400 mb-4">
-                  Kişisel finans ve dijital cüzdan yönetim API’si. Katmanlı mimari, EF Core, PostgreSQL ve JWT kimlik doğrulama altyapısı.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <span className="text-xs px-2.5 py-1 rounded bg-slate-800 text-indigo-300">C# / .NET Core</span>
-                <span className="text-xs px-2.5 py-1 rounded bg-slate-800 text-indigo-300">PostgreSQL</span>
-                <span className="text-xs px-2.5 py-1 rounded bg-slate-800 text-indigo-300">JWT</span>
-              </div>
-            </div>
-
-            <div className="p-6 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-bold text-lg text-white">AI-Powered BI Platform (NL2SQL)</h3>
-                  <ExternalLink className="w-4 h-4 text-slate-500" />
-                </div>
-                <p className="text-sm text-slate-400 mb-4">
-                  Doğal dil sorgularını SQL&apos;e çeviren LLM destekli e-ticaret analitik platformu. LangChain ve GPT tabanlı pipeline.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <span className="text-xs px-2.5 py-1 rounded bg-slate-800 text-indigo-300">Python / FastAPI</span>
-                <span className="text-xs px-2.5 py-1 rounded bg-slate-800 text-indigo-300">Spring Boot</span>
-                <span className="text-xs px-2.5 py-1 rounded bg-slate-800 text-indigo-300">LangChain</span>
-              </div>
-            </div>
-
-            <div className="p-6 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-bold text-lg text-white">SmartBook Appointment API</h3>
-                  <ExternalLink className="w-4 h-4 text-slate-500" />
-                </div>
-                <p className="text-sm text-slate-400 mb-4">
-                  Çakışma önleyici zaman doğrulaması yapan ve rol tabanlı erişim kontrolü (RBAC) barındıran ölçeklenebilir randevu sistemi.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <span className="text-xs px-2.5 py-1 rounded bg-slate-800 text-indigo-300">Java</span>
-                <span className="text-xs px-2.5 py-1 rounded bg-slate-800 text-indigo-300">Spring Boot</span>
-                <span className="text-xs px-2.5 py-1 rounded bg-slate-800 text-indigo-300">REST API</span>
-              </div>
-            </div>
-
-            <div className="p-6 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-bold text-lg text-white">Cloud Earthquake Analytics</h3>
-                  <ExternalLink className="w-4 h-4 text-slate-500" />
-                </div>
-                <p className="text-sm text-slate-400 mb-4">
-                  Deprem verilerini gerçek zamanlı işleyip görselleştiren bulut tabanlı veri analitiği mimarisi.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <span className="text-xs px-2.5 py-1 rounded bg-slate-800 text-indigo-300">AWS Lambda</span>
-                <span className="text-xs px-2.5 py-1 rounded bg-slate-800 text-indigo-300">S3 / QuickSight</span>
-              </div>
             </div>
           </div>
         </section>
@@ -197,79 +308,83 @@ export default function Home() {
         {/* MEDIUM YAZILARI */}
         <section className="space-y-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <BookOpen className="w-6 h-6 text-indigo-400" />
-              <h2 className="text-2xl font-bold tracking-tight">Medium Makaleleri</h2>
+            <div className="flex items-center gap-2.5">
+              <BookOpen className="w-5 h-5 text-stone-600" />
+              <h2 className="text-xl font-bold tracking-tight text-stone-900">Medium Makaleleri</h2>
             </div>
             <a
               href={`https://medium.com/@${MEDIUM_USERNAME}`}
               target="_blank"
               rel="noreferrer"
-              className="text-xs font-medium text-indigo-400 hover:text-indigo-300 flex items-center gap-1"
+              className="text-xs text-stone-600 hover:text-stone-900 font-semibold flex items-center gap-1 transition"
             >
-              Tümünü Gör <ExternalLink className="w-3 h-3" />
+              Tüm Yazılar <ExternalLink className="w-3 h-3" />
             </a>
           </div>
 
           {loadingPosts ? (
-            <div className="text-slate-500 text-sm">Yazılar yükleniyor...</div>
+            <div className="text-stone-400 text-xs">Yazılar yükleniyor...</div>
           ) : posts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {posts.map((post, idx) => (
                 <a
                   key={idx}
                   href={post.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="p-5 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/40 transition flex flex-col justify-between group"
+                  className="p-5 rounded-2xl bg-white border border-stone-200 hover:border-stone-400 transition flex flex-col justify-between group shadow-xs"
                 >
                   <div>
-                    <span className="text-xs text-slate-500">
+                    <span className="text-[11px] font-medium text-stone-400">
                       {new Date(post.pubDate).toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}
                     </span>
-                    <h3 className="font-semibold text-white group-hover:text-indigo-400 transition mt-2 line-clamp-2">
+                    <h3 className="font-medium text-stone-900 group-hover:text-stone-600 transition mt-1.5 text-xs leading-snug line-clamp-2">
                       {post.title}
                     </h3>
                   </div>
-                  <div className="mt-4 flex items-center text-xs text-indigo-400 gap-1">
-                    Okumaya Git <ExternalLink className="w-3 h-3" />
+                  <div className="mt-4 flex items-center text-[11px] font-semibold text-stone-600 gap-1">
+                    Yazıyı Oku <ArrowUpRight className="w-3.5 h-3.5" />
                   </div>
                 </a>
               ))}
             </div>
           ) : (
-            <p className="text-sm text-slate-500">Henüz yayınlanmış bir yazı bulunamadı veya kullanıcı adı güncellenmeli.</p>
+            <p className="text-xs text-stone-500">Henüz yayınlanmış bir makale bulunamadı.</p>
           )}
         </section>
 
         {/* DENEYİM */}
         <section className="space-y-6">
-          <div className="flex items-center gap-3">
-            <Award className="w-6 h-6 text-indigo-400" />
-            <h2 className="text-2xl font-bold tracking-tight">Deneyim & Araştırma</h2>
+          <div className="flex items-center gap-2.5">
+            <Award className="w-5 h-5 text-stone-600" />
+            <h2 className="text-xl font-bold tracking-tight text-stone-900">Deneyim & Araştırma</h2>
           </div>
-          <div className="border-l border-slate-800 pl-6 space-y-8">
+
+          <div className="border-l-2 border-stone-200 pl-6 space-y-6 text-xs">
             <div>
-              <span className="text-xs text-indigo-400 font-medium">Tem 2025 – Ağu 2025</span>
-              <h3 className="text-lg font-bold text-white">M8D6 – Backend Development Stajı</h3>
-              <p className="text-sm text-slate-400 mt-1">ADF Engineering • C#, ASP.NET Core ve veritabanı mimarileri.</p>
+              <span className="text-stone-400 font-medium">Tem 2025 – Ağu 2025</span>
+              <h3 className="text-sm font-semibold text-stone-900 mt-0.5">M8D6 – Backend Development Stajı</h3>
+              <p className="text-stone-600 mt-0.5">ADF Engineering • C#, ASP.NET Core ve veritabanı mimarileri[cite: 1, 2].</p>
             </div>
+
             <div>
-              <span className="text-xs text-indigo-400 font-medium">Ağu 2022 – Ağu 2024</span>
-              <h3 className="text-lg font-bold text-white">TÜBİTAK STAR Araştırmacı Bursiyeri</h3>
-              <p className="text-sm text-slate-400 mt-1">SimurgAI Lab • Derin öğrenme ve medikal görüntü işleme araştırmaları.</p>
+              <span className="text-stone-400 font-medium">Ağu 2022 – Ağu 2024</span>
+              <h3 className="text-sm font-semibold text-stone-900 mt-0.5">TÜBİTAK STAR Araştırmacı Bursiyeri</h3>
+              <p className="text-stone-600 mt-0.5">SimurgAI Lab • Derin öğrenme ve medikal görüntü işleme araştırmaları[cite: 1, 2].</p>
             </div>
+
             <div>
-              <span className="text-xs text-indigo-400 font-medium">Nis 2022 – Tem 2023</span>
-              <h3 className="text-lg font-bold text-white">Öğrenci Asistanı (C Programlama)</h3>
-              <p className="text-sm text-slate-400 mt-1">Yapısal programlama, pointerlar ve veri yapıları laboratuvar desteği.</p>
+              <span className="text-stone-400 font-medium">Nis 2022 – Tem 2023</span>
+              <h3 className="text-sm font-semibold text-stone-900 mt-0.5">Öğrenci Asistanı (C Programlama)</h3>
+              <p className="text-stone-600 mt-0.5">Yapısal programlama, pointerlar ve veri yapıları laboratuvar desteği[cite: 1, 2].</p>
             </div>
           </div>
         </section>
 
       </main>
 
-      <footer className="border-t border-slate-900 py-8 text-center text-xs text-slate-500">
+      {/* FOOTER */}
+      <footer className="border-t border-stone-200/80 py-8 text-center text-xs text-stone-400">
         © {new Date().getFullYear()} Gökçe Soylu.
       </footer>
     </div>
