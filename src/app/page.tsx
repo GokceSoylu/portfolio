@@ -62,7 +62,7 @@ const PROJECTS: ProjectBook[] = [
     highlights: ['LangChain & LLM Pipeline', 'Spring Boot & FastAPI Servisleri', 'Dinamik Grafik & Raporlama'],
     techStack: ['React', 'Spring Boot', 'FastAPI', 'PostgreSQL', 'Docker'],
     githubUrl: 'https://github.com/GokceSoylu/nl2sql_tez',
-    liveUrl: 'https://nl2sql-mmi9fhxgi-goekce2.vercel.app',
+    liveUrl: 'https://nl2sql-tez.vercel.app',
   },
   {
     id: '03',
