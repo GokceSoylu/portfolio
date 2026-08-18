@@ -35,6 +35,7 @@ interface ProjectBook {
   techStack: string[];
   githubUrl: string;
   liveUrl?: string;
+  reportUrl?: string;
 }
 
 const PROJECTS: ProjectBook[] = [
@@ -79,14 +80,15 @@ const PROJECTS: ProjectBook[] = [
   {
     id: '04',
     title: 'Cloud Earthquake Analytics',
-    tagline: 'Gerçek Zamanlı Sismik Akış',
+    tagline: 'AWS Serverless Veri Hattı',
     spineColor: 'bg-[#fae1dd]',
     spineTextColor: 'text-stone-800',
     pageBorder: 'border-[#fae1dd]',
-    overview: 'AWS Lambda ve S3 servisleriyle deprem verilerini işleyip anlık görselleştiren bulut mimarisi.',
-    highlights: ['Serverless Lambda Mimarisi', 'AWS S3 Veri Havuzu', 'QuickSight Analitik Paneller'],
-    techStack: ['AWS Lambda', 'AWS S3', 'QuickSight', 'Python'],
-    githubUrl: 'https://github.com/GokceSoylu',
+    overview: 'AFAD, Kandilli ve USGS sismik verilerini AWS S3, Athena ve QuickSight ile işleyip görselleştiren bulut mimarisi.',
+    highlights: ['AWS S3 Veri Gölü', 'Athena Serverless SQL', 'QuickSight BI Panelleri'],
+    techStack: ['AWS S3', 'AWS Athena', 'QuickSight', 'Python', 'ETL'],
+    githubUrl: 'https://github.com/GokceSoylu/CloudComputing',
+    reportUrl: '/CC_report.pdf',
   }
 ];
 
@@ -131,7 +133,7 @@ export default function Home() {
           {/* Butonlar */}
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <a
-              href="/GokceCV.pdf.pdf"
+              href="/GokceCV.pdf"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-2 px-4 py-2 rounded-xl bg-stone-900 text-white font-semibold text-xs hover:bg-stone-800 transition shadow-xs"
@@ -148,7 +150,7 @@ export default function Home() {
               GitHub
             </a>
 
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer"
+            <a href="https://linkedin.com/in/gokcesoylu" target="_blank" rel="noreferrer"
               className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-stone-200 text-stone-700 hover:border-stone-400 hover:text-stone-900 transition text-xs font-semibold shadow-xs">
               <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -177,7 +179,7 @@ export default function Home() {
               <BookMarked className="w-5 h-5 text-stone-600" />
               <div>
                 <h2 className="text-xl font-bold tracking-tight text-stone-900">Proje Kitaplığı</h2>
-                <p className="text-xs text-stone-500">Kitabın üzerine gelerek detayları görebilir ve canlı uygulamayı deneyimleyebilirsiniz.</p>
+                <p className="text-xs text-stone-500">Kitabın üzerine gelerek detayları görebilir ve canlı uygulamaları ya da raporları inceleyebilirsiniz.</p>
               </div>
             </div>
           </div>
@@ -214,7 +216,7 @@ export default function Home() {
                           ))}
                         </div>
 
-                        {/* Canlı Demo & GitHub Butonları */}
+                        {/* Canlı Demo / Rapor & GitHub Butonları */}
                         <div className="flex items-center gap-2 pt-2 border-t border-stone-200/80">
                           {book.liveUrl && (
                             <a
@@ -225,9 +227,23 @@ export default function Home() {
                               onClick={(e) => e.stopPropagation()}
                             >
                               <Play className="w-3 h-3 text-rose-300 fill-current" />
-                              Canlı Uygulamayı Aç
+                              Canlı Uygulama
                             </a>
                           )}
+
+                          {book.reportUrl && (
+                            <a
+                              href={book.reportUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-stone-800 text-white text-[11px] font-semibold hover:bg-stone-700 transition"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <FileText className="w-3 h-3 text-amber-300" />
+                              Proje Raporu
+                            </a>
+                          )}
+
                           <a
                             href={book.githubUrl}
                             target="_blank"
