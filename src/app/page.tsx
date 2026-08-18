@@ -58,10 +58,11 @@ const PROJECTS: ProjectBook[] = [
     spineColor: 'bg-[#d8e2dc]',
     spineTextColor: 'text-stone-800',
     pageBorder: 'border-[#d8e2dc]',
-    overview: 'Doğal dil sorgularını SQL’e çeviren LangChain ve GPT tabanlı e-ticaret analitik platformu.',
+    overview: 'Doğal dil sorgularını anlık SQL sorgularına dönüştüren, Spring Boot ve FastAPI mikroservis mimarisiyle çalışan e-ticaret analitik ve dinamik veri görselleştirme platformu.',
     highlights: ['LangChain & LLM Pipeline', 'Spring Boot & FastAPI Servisleri', 'Dinamik Grafik & Raporlama'],
-    techStack: ['Python', 'FastAPI', 'Spring Boot', 'LangChain', 'PostgreSQL'],
+    techStack: ['React', 'Spring Boot', 'FastAPI', 'PostgreSQL', 'Docker'],
     githubUrl: 'https://github.com/GokceSoylu/nl2sql_tez',
+    liveUrl: 'https://nl2sql-mmi9fhxgi-goekce2.vercel.app',
   },
   {
     id: '03',
