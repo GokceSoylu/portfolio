@@ -14,7 +14,8 @@ import {
   BookMarked,
   Sparkles,
   FileText,
-  Play
+  Play,
+  Info
 } from 'lucide-react';
 
 interface MediumPost {
@@ -67,15 +68,16 @@ const PROJECTS: ProjectBook[] = [
   },
   {
     id: '03',
-    title: 'SmartBook Appointment API',
-    tagline: 'Akıllı Randevu & Rezervasyon',
+    title: 'SmartBooking Workspace Cloud',
+    tagline: 'Akıllı Çalışma Alanı Rezervasyonu',
     spineColor: 'bg-[#f0efeb]',
     spineTextColor: 'text-stone-800',
     pageBorder: 'border-[#e2dfd2]',
-    overview: 'Zaman çakışmalarını engelleyen akıllı doğrulama algoritmalarına sahip ölçeklenebilir randevu motoru.',
-    highlights: ['Rol Tabanlı Erişim (RBAC)', 'Zaman Çakışma Önleyici Doğrulama', 'RESTful API Tasarımı'],
-    techStack: ['Java', 'Spring Boot', 'RESTful API', 'PostgreSQL'],
-    githubUrl: 'https://github.com/GokceSoylu',
+    overview: 'Zaman çakışmalarını engelleyen akıllı doğrulama algoritmaları, dinamik saatlik fiyatlandırma ve JWT rol güvenliğine sahip uçtan uca rezervasyon platformu.',
+    highlights: ['Spring Security 6 & JWT', 'Zaman Çakışma Önleyici Algoritma', 'RESTful API & React UI'],
+    techStack: ['React', 'Vite', 'Java 17', 'Spring Boot 3', 'PostgreSQL', 'Docker'],
+    githubUrl: 'https://github.com/GokceSoylu/SmartBooking',
+    liveUrl: 'https://smartbooking-gokcesoylu.vercel.app',
   },
   {
     id: '04',
@@ -113,7 +115,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#faf8f5] text-stone-800 font-sans antialiased selection:bg-[#fae1dd] selection:text-stone-900">
 
-      <main className="max-w-4xl mx-auto px-6 py-16 space-y-20">
+      <main className="max-w-4xl mx-auto px-6 py-16 space-y-16">
 
         {/* HERO */}
         <section className="flex flex-col items-start gap-5 pt-8 border-b border-stone-200/80 pb-12">
@@ -169,6 +171,23 @@ export default function Home() {
               <Mail className="w-3.5 h-3.5" />
               İletişim
             </a>
+          </div>
+        </section>
+
+        {/* CANLI PROJELER & RAPOR BİLGİLENDİRME NOTU */}
+        <section className="rounded-2xl border border-stone-300/80 bg-[#fdfbf9] p-5 shadow-xs">
+          <div className="flex items-start gap-3.5">
+            <div className="p-2 rounded-xl bg-[#f0efeb] text-stone-700 shrink-0 mt-0.5 border border-stone-200">
+              <Info className="w-4 h-4" />
+            </div>
+            <div className="space-y-1.5 text-xs sm:text-sm text-stone-600">
+              <p className="leading-relaxed">
+                <strong className="text-stone-900 font-semibold">Canlı Uygulama Notu:</strong> Projeler ücretsiz bulut sunucularında barındırıldığından, ilk veritabanı bağlantısının kurulması <span className="font-semibold text-stone-900">20-30 saniye</span> sürebilir; açılışta kısa bir süre beklemeniz rica olunur.
+              </p>
+              <p className="leading-relaxed text-stone-500">
+                <strong className="text-stone-800 font-medium">Deprem Projesi:</strong> AFAD / Kandilli veri sağlayıcı API erişim kısıtlamaları nedeniyle bu projenin doğrudan canlı bağlantısı yerine teknik analiz raporları ve çıktıları sunulmaktadır.
+              </p>
+            </div>
           </div>
         </section>
 
